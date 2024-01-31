@@ -170,9 +170,10 @@ func verifyHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
 	http.HandleFunc("/generate-user-token", generateUserTokenHandler)
 	http.HandleFunc("/verify", verifyHandler)
 
-	fmt.Println("Server is running on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("Server is running on port", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
