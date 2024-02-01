@@ -117,8 +117,6 @@ func generateUserTokenHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintln(w, "Token generated successfully")
-
 	response := TokenResponse{Token: token}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
